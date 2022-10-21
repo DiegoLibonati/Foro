@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block linkcss %} 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/posts/posts.css') }}">
+{% endblock linkcss %}
+
+{% block title %} {{category.name}} {% endblock title %}
+
+{% block content %}
+    <main>
+        {% if not posts %}
+            <section class="not_posts_container">
+                <h1 class="if-not-post-h1" >There are no posts with the category: {{category.name}} but you can be the first to create a post.</h1>
+                <a class="if-not-post-a"  href="{{url_for('views.create_post', category_id = category.id)}}">Create a new post of {{category.name}}</a>
+            </section>
+        {% else %}
+        <section class="posts_container">
+            <a class="if-not-post-a"  href="{{url_for('views.create_post', category_id = category.id)}}">Create a new post of {{category.name}}</a>
+            <article class="posts_container_list">
+                {% for user, post in posts %}
+                    <div class="post_container">
+                        <h2><a href="{{url_for('views.post', category_id = category.id, title = post.title)}}">{{post.title}}</a></h2>
+
+                        <div class="post_container_header">
+                            <img src="{{ url_for('static', filename='profilephotos/'+user.profile_photo) }}" alt="img user">
+                        </div>
+                    </div>
+                {% endfor %}
+            </article>
+        </section>
+        {% endif %}
+    </main>
+{% endblock content %}
+
+{% block javascript %} 
+
+
+{% endblock javascript %}

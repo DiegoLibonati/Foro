@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block linkcss %} 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/search/search.css') }}">
+{% endblock linkcss %}
+
+{% block title %} Search {% endblock title %}
+
+{% block content %}
+
+    <main class="search_main">
+
+        {% if users %}
+
+            <section class="search_section_with_finds">
+                <h1>RESULTS OF: {{query}}</h1>
+            </section>
+
+            <section class="search_finds">
+                {% for user in users %}
+                    <article class="user_find">
+                        <img  src="{{ url_for('static', filename='profilephotos/' + user.profile_photo) }}" alt="gif">  
+                        <a href={{ url_for('views.profile', user = user.username) }}>{{user.username}}</a>
+                    </article>
+                {% endfor %}
+            </section>
+
+
+        {% else %}
+            <section class="search_section">
+                <h1>Search a USER</h1>
+                <form method="POST">
+                    <input type="text" name="name_find_user" placeholder="eg. Die"/>
+                    <button type="submit">FIND</button>
+                </form>
+                <img  class="search_section_img" src="{{ url_for('static', filename='search.gif') }}" alt="gif">  
+            </section>
+        {% endif %}
+    </main>
+
+{% endblock content %}
+
+{% block javascript %} 
+
+
+{% endblock javascript %}

@@ -1,0 +1,130 @@
+.header_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    width: 100%;
+    height: 7rem;
+    background-color: #34B5DF;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+}
+
+.navbar_mobile{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    height: 7rem;
+    width: 100%;
+    padding: 1rem;
+}
+
+.header_container img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+}
+
+.bi-list{
+    display: block;
+    font-size: 3rem;
+    color: #fff;
+}
+
+.bi-x{
+    display: none;
+    font-size: 3rem;
+    color: #fff;
+}
+
+.navbar_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    height: auto;
+    width: 100%;
+}
+
+.navbar_container_list{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-flow: column nowrap;
+    height: auto;
+    max-height: 0;
+    width: 100%;
+    background-color: #34B5DF;
+    transition: max-height 1s;
+    overflow: hidden;
+}
+
+.navbar_container_list_li{
+    padding: 1rem;
+}
+
+.navbar_container_list_li_a{
+    text-decoration: none;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.navbar-open{
+    max-height: 100rem;
+    transition: max-height 1s;
+}
+
+.navbar_logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+.navbar_logo img {
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+}
+
+.navbar_logo h2{
+    font-size: 2rem;
+    color: #fff;
+    padding: 1rem;
+}
+
+@media only screen and (min-width:1024px) {
+
+    .header_container{
+        justify-content: space-between;
+    }
+
+    .navbar_mobile{
+        width: auto;
+    }
+
+    .bi-list{
+        display: none !important;
+    }
+    .bi-x{
+        display: none !important;
+    }
+
+    .navbar_container{
+        width: auto;
+    }
+
+    .navbar_container_list{
+        flex-flow: row wrap;
+        max-height: 100rem;
+    }
+
+    
+}

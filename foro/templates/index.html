@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block linkcss %} 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home/general_index.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home/chat.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home/ons.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home/categorys.css') }}">
+{% endblock linkcss %}
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+    <main class="index_main">
+
+        <section class="chat_container">
+            <ul class="chat_messages">
+
+            </ul>
+
+            <form> 
+                <input type="text" placeholder="Your message" id="myMessage" class="inputMessage"></input>
+                <button id="sendbutton">SUBMIT</button>
+            </form>
+        </section>
+
+        <section class="ons_container">
+            <h2>Users ON</h2>
+            <ul class="ons_container_list">
+                {% for user in users_on %}
+                    <li>{{user.username}}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="categorys_container">
+            {% for category in categorys %}
+                <article class="category_container">
+                    <img src="{{ url_for('static', filename='categoryimages/'+category.image) }}" alt="category"> 
+                    <div class="category_container_information">
+                        <a href="{{url_for('views.posts', category_id = category.id)}}">JOIN TO {{category.name}}</a>
+                    </div>
+                </article>
+            {% endfor %}
+        </section>
+
+
+    </main>
+{% endblock content %}
+
+{% block javascript %} 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.js" ></script>
+
+    <script src="{{ url_for('static', filename='js/home/socketio.js') }}"> </script>
+
+{% endblock javascript %}

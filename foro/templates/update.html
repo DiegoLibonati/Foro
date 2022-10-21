@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block linkcss %} <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/profile/edit.css') }}">{% endblock linkcss %}
+
+{% block title %} Editing: {{user.username}} {% endblock title %}
+
+{% block content %}
+<main class="update_container">
+    <section class="form_login_center">
+        <form method="POST" class="form_container" enctype="multipart/form-data">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="{{user.username}}">
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" value="{{user.email}}">
+
+            <label for="profile_photo" class="pfphoto">Profile photo:</label>
+            <input type="file" accept="image/*" id="profile_photo" class="pfphoto" name="profile_photo">
+
+            <div class="checkbox">
+                <label for="cbox2">Remove profile photo</label>
+                <input type="checkbox" id="removeprofilephoto" name="removeprofilephoto">
+            </div>
+
+            <label for="profile_banner" class="pfbanner">Profile banner:</label>
+            <input type="file" accept="image/*" id="profile_banner" class="pfbanner" name="profile_banner">
+
+            <div class="checkbox">
+                <label for="cbox2">Remove profile banner</label>
+                <input type="checkbox" id="removeprofilebanner" name="removeprofilebanner">
+            </div>
+            
+            <label for="profile_background" class="pfbackground">Profile background:</label>
+            <input type="file" accept="image/*" id="profile_background" class="pfbackground" name="profile_background">
+
+            <div class="checkbox">
+                <label for="cbox3">Remove profile background</label>
+                <input type="checkbox" id="removeprofilebackground" name="removeprofilebackground">
+            </div>
+
+            <label for="password">Password (ACTUAL):</label>
+            <input type="password" id="password" name="password">
+            
+            <button type="submit">Edit</button>
+        </form>
+    </section>
+</main>
+{% endblock content %}
+
+{% block javascript %} <script src="{{ url_for('static', filename='js/update/update.js') }}"> </script>{% endblock javascript %}

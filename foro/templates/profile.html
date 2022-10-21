@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block linkcss %} 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/profile/header.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/profile/main.css') }}">
+{% endblock linkcss %}
+
+{% block title %} {{user.username}} {% endblock title %}
+
+{% block content %} 
+
+<main>
+
+    <section class="header_profile_container">
+        <article class="header_container_banner">
+            <img src="{{ url_for('static', filename='profilebanners/'+user.profile_banner) }}" alt="gif">
+
+            <div class="header_container_banner_information">
+                {% if current_user.id in subs_profile|map(attribute="user_id")|list %}
+                <a href="/profile/{{user.username}}/sub" class="element-of-header-information follow-btn">UNFOLLOW</a>
+
+                {% else %}
+                <a href="/profile/{{user.username}}/sub" class="element-of-header-information follow-btn">FOLLOW</a>
+
+                {% endif %}
+                <h2 class="element-of-header-information">Last connection: {{user.last_connection}}</h2>
+                <button class="element-of-header-information"><a href="{{url_for("views.profile_update", username = user.username)}}"><i class="bi bi-pencil-square"></i></a></button>
+            </div>
+        </article>
+
+        <img class="img-profile" src="{{ url_for('static', filename='profilephotos/'+user.profile_photo) }}" alt="gif">
+    </section>
+
+    <section class="profile_main">
+
+        <aside class="profile_information"> 
+
+            <div class="profile_information_item">
+                <h2>Username: </h2>
+                <p>{{user.username}}</p>
+            </div>
+
+            <div class="profile_information_item">
+                <h2>Email: </h2>
+                <p>{{user.email}}</p>
+            </div>
+
+            <div class="profile_information_item">
+                <h2>Likes Gived: </h2>
+                <p>{{user.likes|count}}⭐</p>
+            </div>
+
+            <div class="profile_information_item"> 
+                <h2>Comments Made: </h2>
+                <p>{{user.comments|count}}💬</p>
+            </div>
+
+            {% if subs %}
+
+                <div class="profile_information_item"> 
+                    <h2>Followers: </h2>
+                    <div class="subs_container">
+                        {% for user, sub in subs %}
+                        <img class="img-subs" src="{{ url_for('static', filename='profilephotos/'+user.profile_photo) }}" alt="gif">
+                        {% endfor %}
+                    </div>
+                </div>
+
+            {% endif %}
+
+        </aside>
+
+        <article class="profile_comments">
+            <form method="POST" class="form_container">
+                <h2>Leave a comment</h2>
+                <textarea name="comment" placeholder="Enter comment"></textarea>
+                <button type="submit">SUBMIT</button>
+            </form>
+            
+            {% for user, comment in comments %}
+            <div class="comment_container">
+
+                    <div class="comment_container_header">
+                        <img  src="{{ url_for('static', filename='profilephotos/'+user.profile_photo) }}" alt="gif">
+                        <h2 class=" element-of-comment">{{user.username}}</h2>
+
+
+                        {% if current_user.id in comment.likes|map(attribute="user_id")|list %}
+                        <a href="/{{user.username}}/{{comment.id}}/like" class="like_comment"><i class="bi bi-star-fill"></i></a><span class="like_comment_count">{{comment.likes|length}}</span>
+
+                        {% else %}
+                        <a href="/{{user.username}}/{{comment.id}}/like" class="like_comment"><i class="bi bi-star"></i></a><span class="like_comment_count">{{comment.likes|length}}</span>
+
+                        {% endif %}
+
+                        {% if comment.user_id == current_user.id or comment.profile_id == current_user.id %}
+                            <a href="/{{user.username}}/{{comment.id}}/delete" class="trash_comment element-of-comment"><i class="bi bi-trash"></i></a>
+                        {% endif %}
+                    </div>
+
+                    <p>{{comment.content}}</p>
+
+            </div>
+            {% endfor %}
+        </article>
+
+    </section>
+</main>
+
+{% endblock content %}
+
+
+{% block javascript %} 
+
+<script>
+
+    const background = "{{user.profile_background}}"
+
+    if ("{{user.profile_background}}" !== "None"){
+        document.body.style.backgroundImage = `url(/static/profilebackgrounds/${background})` 
+    } 
+    
+</script>
+
+{% endblock javascript %}

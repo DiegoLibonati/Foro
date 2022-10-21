@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block linkcss %} <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/sign_up/sign_up.css') }}">{% endblock linkcss %}
+
+{% block title %} Sign Up {% endblock title %}
+
+{% block content %}
+<main class="login_main">
+    <section class="form_login_center">
+        <form method="POST" class="form_container">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+
+            <label for="password">Confirm password:</label>
+            <input type="password" id="confirm_password" name="confirm_password">
+            
+            <button type="submit">Sign Up</button>
+        </form>
+    </section>
+</main>
+{% endblock content %}

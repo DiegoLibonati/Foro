@@ -1,0 +1,164 @@
+.search_main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+}
+
+.search_section{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-flow: column wrap;
+    width: 100%;
+    height: calc(100vh - 9rem);
+}
+
+.search_section_with_finds{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 1rem;
+    column-gap: 1rem;
+    width: 100%;
+    height: 100%;
+    margin: 1rem 0 1rem 0;
+}
+
+.search_main h1{
+    font-size: 3rem;
+    text-align: center;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: #34B5DF;
+    width: 100%;
+    color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.search_main form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    background-color: #34B5DF;
+    padding: 1rem;
+    color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.search_main form input{
+    padding: .5rem;
+    font-size: 1.5rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border: none;
+    width: 70%;
+    outline: none;
+}
+
+.search_main form button{
+    width: 20%;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: .5rem;
+    font-size: 1.5rem;
+    background-color: #000;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.search_section_img{
+    background-color: #34B5DF;
+    padding: 1rem;
+    color: #fff;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.search_finds{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    width: 100%;
+    height: auto;
+}
+
+.user_find{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    height: 10rem;
+    width: 100%;
+    border-radius: 1rem;
+    background-color: #34B5DF;
+    margin: 1rem;
+    padding: 1rem;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.user_find img{
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.user_find a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    position: absolute;
+    align-self: center;
+    width: 100%;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+@media only screen and (min-width:540px) {
+    .search_main h1{
+    font-size: 5rem;
+    }
+}
+
+@media only screen and (min-width:768px) {
+    .search_main h1{
+    font-size: 7rem;
+    }
+
+    .search_main form{
+       width: 70rem;
+    }
+
+    .search_main form input{
+        padding: 1rem;
+        font-size: 3rem;
+    }
+    
+    .search_main form button{
+        padding: 1rem;
+        font-size: 3rem;
+    }
+    
+}
+
+@media only screen and (min-width:1024px) {
+    .user_find{
+        width: 30rem;
+    }
+    
+}

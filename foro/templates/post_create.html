@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block linkcss %} 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/posts/post_create.css') }}">
+{% endblock linkcss %}
+
+{% block title %} Create post {% endblock title %}
+
+{% block content %}
+    <main class="main_create_container">
+        <section class="create_post_container">
+            <form method="POST" class="create_post_container_form">
+                <label>Title:</label>
+                <input type="text" name="title_post" placeholder="Post title..">
+                <label>Content:</label>
+                <textarea type="text" name="content_post" placeholder="Content about post.."></textarea>
+                <button type="submit">CREATE</button>
+            </form>
+        </section>
+    </main>
+{% endblock content %}
+
+{% block javascript %} 
+
+
+{% endblock javascript %}

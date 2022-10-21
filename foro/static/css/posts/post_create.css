@@ -1,0 +1,87 @@
+.main_create_container{
+    background-image: url("../../principal.gif");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: calc(100vh - 7rem);
+    width: 100%;
+}
+
+.create_post_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    height: auto;
+    width: 100%;
+}
+
+.create_post_container_form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    width: 95%;
+    height: auto;
+}
+
+.create_post_container_form label{
+    color: #000;
+    font-size: 2rem;
+    align-self: flex-start;
+    margin-top: 1rem;
+    font-weight: 900;
+}
+
+
+.create_post_container_form input{
+    background-color: #34B5DF;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    padding: .5rem;
+    width: 100%;
+    margin: 0 0 1rem 0;
+    color: #fff;
+}
+
+.create_post_container_form textarea{
+    background-color: #34B5DF;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    padding: .5rem;
+    width: 100%;
+    margin: 0 0 1rem 0;
+    color: #fff;
+    resize: none;
+    height: 20rem;
+}
+
+
+.create_post_container_form button{
+    width: 100%;
+    border: none;
+    background-color: #34B5DF;
+    color: #fff;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+
+.create_post_container_form textarea::placeholder{
+    color: #fff;
+}
+
+.create_post_container_form input::placeholder{
+    color: #fff;
+}
+
+@media only screen and (min-width:1024px) {
+    
+.create_post_container_form{
+    width: 50rem;
+}
+
+}

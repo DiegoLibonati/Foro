@@ -1,0 +1,56 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@200&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+    list-style: none;
+    font-family: Prompt, Helvetica, sans-serif;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+    margin-top: 7rem;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+}
+
+.alert{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 1rem;
+}
+
+.alert h2, .alert-x{
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.bad{
+    background-color: red;
+}
+
+.good{
+    background-color: green;
+}

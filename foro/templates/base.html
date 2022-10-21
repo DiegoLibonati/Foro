@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/general.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}">
+    {% block linkcss %} {% endblock linkcss %}
+
+    <title>{% block title %} {% endblock title %}</title>
+  </head>
+  <body>
+
+    <header class="header_container">
+        <div class="navbar_mobile">
+            <img src="{{ url_for('static', filename='DL.png') }}" alt="Diego Libonati Logo">
+            <i class="bi bi-list"></i>
+            <i class="bi bi-x"></i>
+        </div>
+
+        {% if user.is_authenticated %}
+          <div class="navbar_logo">
+            <img  src="{{ url_for('static', filename='profilephotos/'+current_user.profile_photo) }}" alt="gif">
+            <h2>¡{{current_user.username}}!</h2>
+          </div>
+        {% endif %}
+
+        <nav class="navbar_container">
+            <ul class="navbar_container_list">
+              {% if user.is_authenticated %}
+                <li class="navbar_container_list_li"><a class="navbar_container_list_li_a" href="/">Home</a></li>
+                <li class="navbar_container_list_li"><a class="navbar_container_list_li_a" href={{ url_for('views.profile', user = current_user.username) }}>Profile</a></li>
+                <li class="navbar_container_list_li"><a class="navbar_container_list_li_a" href="/search">Search</a></li>
+                <li class="navbar_container_list_li"><a class="navbar_container_list_li_a" href="/logout">Log out</a></li>
+              {% else %}
+                <li class="navbar_container_list_li"><a class="navbar_container_list_li_a" href="/login">Login</a></li>
+                <li class="navbar_container_list_li"><a class="navbar_container_list_li_a" href="/sign-up">Sign Up</a></li>
+              {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    {% with messages = get_flashed_messages(with_categories=true) %} 
+
+      {% if messages %} 
+      
+        {% for category, message in messages %} 
+        
+          {% if category == 'error' %}
+
+              <section class="alert bad">
+                <h2>{{message}}</h2>
+                <h2 class="quit-alert">X</h2>
+              </section>
+        
+            {% else %}
+          
+              <section class="alert good">
+                <h2>{{message}}</h2>
+                <h2 class="quit-alert">X</h2>
+              </section>
+        
+            {% endif %} 
+          
+          {% endfor %} 
+        
+        {% endif %} 
+      
+      {% endwith %}
+
+      {% block content %}
+    
+      {% endblock content %}
+
+    <script src="{{ url_for('static', filename='js/general.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+    {% block javascript %} {% endblock javascript %}
+  </body>
+</html>

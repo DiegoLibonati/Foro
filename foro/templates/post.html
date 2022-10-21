@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block linkcss %} 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/posts/post.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/posts/post_comments.css') }}">
+{% endblock linkcss %}
+
+{% block title %} Create post {% endblock title %}
+
+{% block content %}
+    <main>
+        <section class="post_specific_container">
+            <article class="post_specific_container_header">
+                <img class="img-profile" src="{{ url_for('static', filename='profilephotos/'+author.profile_photo) }}" alt="gif">
+                <h2>{{author.username}}</h2>
+            </article>
+
+            <article class="post_specific_container_content">
+                <h1>{{post.title}}</h1>
+                <p>{{post.content}}</p>
+            </article>
+
+            <article class="post_specific_container_footer">
+                {% if current_user.id in post.likes|map(attribute="user_id")|list %}
+                <a href="/posts/{{post.category_id}}/{{post.title}}/like_post" class="like_post"><i class="bi bi-star-fill"></i></a><span class="like_post_count">{{post.likes|length}}</span>
+
+                {% else %}
+                <a href="/posts/{{post.category_id}}/{{post.title}}/like_post" class="like_post"><i class="bi bi-star"></i></a><span class="like_post_count">{{post.likes|length}}</span>
+
+                {% endif %}
+            </article>
+
+            {% if author.id == current_user.id %}
+                <a href="/posts/{{post.category_id}}/{{post.title}}/delete_post" class="trash_post"><i class="bi bi-trash"></i></a>
+            {% endif %}
+        </section>
+
+        <section class="post_comment_container">
+            <form method="POST" class="post_comment_container_form">
+                <h2>Leave a comment</h2>
+                <textarea placeholder="Your comment goes here..." name="content"></textarea>
+                <button type="submit">SUBMIT</button>
+            </form>
+
+            {% if not post.comments %}
+                <h2 class="post_not_comments">Not comments to show</h2>
+            {% else %}
+                {% for user, comment in comments %}
+                   <article class="post_comment">
+                        <div class="post_comment_header">
+                            <img class="img-profile" src="{{ url_for('static', filename='profilephotos/'+user.profile_photo) }}" alt="gif">
+                            <h2>{{user.username}}</h2>
+                        </div>
+
+                        <div class="post_comment_content">
+                            <p>{{comment.content}}</p>
+                        </div>
+
+                        <div class="post_comment_actions">
+                            {% if user.id == current_user.id %}
+                                <a href="/posts/{{post.category_id}}/{{post.title}}/{{comment.id}}/delete_post_comment" class="trash_post_comment element-of-post-comment"><i class="bi bi-trash"></i></a>
+                            {% endif %}
+
+                            {% if current_user.id in comment.likes|map(attribute="user_id")|list %}
+                                <a href="/posts/{{post.category_id}}/{{post.title}}/{{comment.id}}/like_post_comment" class="like_post_comment element-of-post-comment"><i class="bi bi-star-fill"></i></a><span class="like_post_comment_count">{{comment.likes|length}}</span>
+            
+                            {% else %}
+                                <a href="/posts/{{post.category_id}}/{{post.title}}/{{comment.id}}/like_post_comment" class="like_post_comment element-of-post-comment"><i class="bi bi-star"></i></a><span class="like_post_comment_count">{{comment.likes|length}}</span>
+            
+                            {% endif %}
+                        </div>
+                   </article>
+                {% endfor %}
+            {% endif %}
+        </section>
+    </main>
+{% endblock content %}
+
+{% block javascript %} 
+
+
+{% endblock javascript %}
