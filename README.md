@@ -31,6 +31,20 @@ This application is built in the Python Framework: FLASK. Also for the front end
 17. You can create posts with title and description
 18. Each post has comments and those comments can be deleted if you are the owner of the comment and can also be liked.
 
+## Galery
+
+![Foro](![Foro](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Flask/Imagenes/foroflask/foroflask.png)
+
+![Foro](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Flask/Imagenes/foroflask/foroflask-0.jpg)
+
+![Foro](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Flask/Imagenes/foroflask/foroflask-1.jpg)
+
+![Foro](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Flask/Imagenes/foroflask/foroflask-2.jpg)
+
+![Foro](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Flask/Imagenes/foroflask/foroflask-3.jpg)
+
+![Foro](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Flask/Imagenes/foroflask/foroflask-4.jpg)
+
 ## Portfolio Link
 
 `https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Foro`
