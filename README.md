@@ -33,7 +33,7 @@ This application is built in the Python Framework: FLASK. Also for the front end
 
 ## Galery
 
-![Foro](![Foro](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Flask/Imagenes/foroflask/foroflask.png)
+![Foro](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Flask/Imagenes/foroflask/foroflask.png)
 
 ![Foro](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Flask/Imagenes/foroflask/foroflask-0.jpg)
 
