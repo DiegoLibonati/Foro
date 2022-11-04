@@ -1,6 +1,6 @@
 # Foro
 
-## Installation
+## Getting Started
 
 1. Clone the repository with `git clone "repository link"`
 2. Install the requirements with: `pip install -r requirements.txt`
@@ -31,6 +31,16 @@ This application is built in the Python Framework: FLASK. Also for the front end
 17. You can create posts with title and description
 18. Each post has comments and those comments can be deleted if you are the owner of the comment and can also be liked.
 
+## Technologies used
+
+1. FLASK
+2. HTML5
+3. CSS3
+4. JAVASCRIPT
+5. SQL
+6. MYSQL
+7. JINJA2
+
 ## Galery
 
 ![Foro](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/Flask/Imagenes/foroflask/foroflask.png)
@@ -47,4 +57,11 @@ This application is built in the Python Framework: FLASK. Also for the front end
 
 ## Portfolio Link
 
-`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Foro`
+`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Foro%20page`
+
+## Video 
+
+
+
+https://user-images.githubusercontent.com/99032604/199869199-b466d0bb-eab7-4b43-9872-e6e140473ac8.mp4
+
