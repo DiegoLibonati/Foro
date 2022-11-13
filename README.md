@@ -57,11 +57,8 @@ This application is built in the Python Framework: FLASK. Also for the front end
 
 ## Portfolio Link
 
-`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Foro%20page`
+`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Foro%20Page`
 
-## Video 
-
-
+## Video
 
 https://user-images.githubusercontent.com/99032604/199869199-b466d0bb-eab7-4b43-9872-e6e140473ac8.mp4
-
