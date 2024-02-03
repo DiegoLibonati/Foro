@@ -1,47 +1,33 @@
-const elementsOfProfilePhoto = document.querySelectorAll(".pfphoto")
-const elementsOfProfileBanner = document.querySelectorAll(".pfbanner")
+const elementsOfProfilePhoto = document.querySelectorAll(".pfphoto");
+const elementsOfProfileBanner = document.querySelectorAll(".pfbanner");
 
 const checkboxProfilePhoto = document.getElementById("removeprofilephoto");
 const checkboxProfileBanner = document.getElementById("removeprofilebanner");
 
-const profilePhoto = document.getElementById("profile_photo")
-const profileBanner = document.getElementById("profile_banner")
+const profilePhoto = document.getElementById("profile_photo");
+const profileBanner = document.getElementById("profile_banner");
 
-const arrayPhoto =  Array.from(elementsOfProfilePhoto)
-const arrayBanner =  Array.from(elementsOfProfileBanner)   
-
-
+const arrayPhoto = Array.from(elementsOfProfilePhoto);
+const arrayBanner = Array.from(elementsOfProfileBanner);
 
 checkboxProfilePhoto.addEventListener("change", (e) => {
-
+  arrayPhoto.map((element) => {
     if (e.target.checked) {
-        arrayPhoto.map(element => {
-            element.style.display = "None"
-            profilePhoto.value = null
-        })
+      element.style.display = "None";
+      profilePhoto.value = null;
     } else {
-        arrayPhoto.map(element => {
-            element.style.display = "Block"
-        })
+      element.style.display = "Block";
     }
-
-})
-
+  });
+});
 
 checkboxProfileBanner.addEventListener("change", (e) => {
-
+  arrayBanner.map((element) => {
     if (e.target.checked) {
-        arrayBanner.map(element => {
-            element.style.display = "None"
-            profileBanner.value = null
-        })
+      element.style.display = "None";
+      profileBanner.value = null;
     } else {
-        arrayBanner.map(element => {
-            element.style.display = "Block"
-        })
+      element.style.display = "Block";
     }
-    
-
-})
-
-
+  });
+});
